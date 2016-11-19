@@ -13,8 +13,6 @@ public class Test1 {
 	@Test
 	public void test1() throws Exception {
 		File f = new File("/home/gim/git/ymltest/src/main/java/ymltest/contract.yml");
-		System.out.println(f.getCanonicalPath());
-		System.out.println(f.exists());
 
 		YamlReader reader = new YamlReader(new FileReader(f));
 		Object object = reader.read();
