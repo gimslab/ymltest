@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.junit.Test;
 
@@ -12,6 +11,7 @@ import com.esotericsoftware.yamlbeans.YamlReader;
 
 public class Test1 {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void test1() throws Exception {
 		File f = new File("contract.yml");
@@ -20,7 +20,7 @@ public class Test1 {
 		YamlReader reader = new YamlReader(new FileReader(f));
 		Object object = reader.read();
 		System.out.println(object);
-		Map map = (Map) object;
+		Map<?,?> map = (Map<?,?>) object;
 
 		/*
     name: Nathan Sweet
@@ -32,6 +32,7 @@ public class Test1 {
      - name: Work
        number: 425-555-2306
 		 */
+		System.out.println();
 		System.out.printf("name = %s\n", map.get("name"));
 		System.out.printf("age = %s\n", map.get("age"));
 		System.out.printf("address = %s\n", map.get("address"));
